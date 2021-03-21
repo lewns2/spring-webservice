@@ -1,0 +1,52 @@
+package com.salon.springboot.domain.user;
+
+import com.salon.springboot.domain.BaseTimeEntity;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import javax.management.relation.Role;
+import javax.persistence.*;
+
+@Getter
+@NoArgsConstructor
+@Entity
+public class User extends BaseTimeEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long Id;
+
+    @Column(nullable = false)
+    private String name;
+
+    @Column(nullable = false)
+    private String email;
+
+    @Column
+    private String picture;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
+
+    @Builder
+    public User(String name, String email, String picture, Role role) {
+        this.name = name;
+        this.email = email;
+        this.picture = picture;
+        this.role = role;
+    }
+
+    public User update(String name, String picture) {
+        this.name;
+        this.picture;
+
+        return this;
+    }
+
+    public String getRolekey() {
+        return this.role.getKey();
+    }
+
+}

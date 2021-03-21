@@ -48,6 +48,4 @@ public class PostsService {
                 .collect(Collectors.toList());
     }
 
-
-
 }
